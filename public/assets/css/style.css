@@ -1,0 +1,154 @@
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+
+/* Keranjang */
+.pembayaran {
+  border: 01px solid #A8A4A4;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btn-alternative-order {
+  background-color: #40AA54;
+}
+
+.btn-alternative-order:hover {
+  background-color: #a1a1a1;
+}
+
+.text-orange {
+  color: #FB591D;
+}
+
+.garis-order {
+  width: 99%;
+}
+
+/* Detail-transaksi */
+.bg-hijau {
+  background-color: rgb(125 195 131 / 50%);
+  color: #40AA54;
+}
+
+.btn-alamat {
+  border: 1px solid #A8A4A4;
+  border-radius: 4px;
+}
+
+.object-fit {
+  object-fit: contain;
+}
+
+.img-people-order {
+  width: 96.71px;
+  height: 94px;
+}
+
+.plus {
+  margin-left: auto !important;
+}
+
+.minus {
+  margin-right: auto !important;
+}
+
+@media (min-width: 576px) {
+  .position-sm-static {
+    position: static !important;
+  }
+
+  .position-sm-relative {
+    position: relative !important;
+  }
+
+  .position-sm-absolute {
+    position: absolute !important;
+  }
+
+  .position-sm-fixed {
+    position: fixed !important;
+  }
+
+  .position-sm-sticky {
+    position: sticky !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .position-md-static {
+    position: static !important;
+  }
+
+  .position-md-relative {
+    position: relative !important;
+  }
+
+  .position-md-absolute {
+    position: absolute !important;
+  }
+
+  .position-md-fixed {
+    position: fixed !important;
+  }
+
+  .position-md-sticky {
+    position: sticky !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .position-lg-static {
+    position: static !important;
+  }
+
+  .position-lg-relative {
+    position: relative !important;
+  }
+
+  .position-lg-absolute {
+    position: absolute !important;
+  }
+
+  .position-lg-fixed {
+    position: fixed !important;
+  }
+
+  .position-lg-sticky {
+    position: sticky !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .position-xl-static {
+    position: static !important;
+  }
+
+  .position-xl-relative {
+    position: relative !important;
+  }
+
+  .position-xl-absolute {
+    position: absolute !important;
+  }
+
+  .position-xl-fixed {
+    position: fixed !important;
+  }
+
+  .position-xl-sticky {
+    position: sticky !important;
+  }
+}
