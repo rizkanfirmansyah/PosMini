@@ -1,3 +1,15 @@
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    timer: 1000,
+    timerProgressBar: true,
+    showConfirmButton: false,
+    didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Toast.stopTimer);
+        toast.addEventListener("mouseleave", Toast.resumeTimer);
+    },
+});
+
 class Crud {
     get(data) {
         $(`#${data.table}`).DataTable({
@@ -26,11 +38,9 @@ class Crud {
                 "X-CSRF-TOKEN": csrftoken,
             },
             success: (response) => {
-                Swal.fire({
+                Toast.fire({
                     icon: "success",
                     title: response.message,
-                    showConfirmButton: false,
-                    timer: 1000,
                 }).then((result) => {
                     $(".modal").modal("hide");
                 });
@@ -44,10 +54,9 @@ class Crud {
                         $(`small.${key}`).text(value);
                     }
                 }
-                Swal.fire({
+                Toast.fire({
                     icon: "error",
                     title: error.responseJSON.message,
-                    showConfirmButton: false,
                     timer: 2000,
                 });
             },
@@ -64,10 +73,9 @@ class Crud {
                 return response.data;
             },
             error: (error) => {
-                Swal.fire({
+                Toast.fire({
                     icon: "error",
                     title: error.responseJSON.message,
-                    showConfirmButton: false,
                     timer: 2000,
                 });
             },
@@ -76,7 +84,7 @@ class Crud {
         return result;
     }
 
-    delete(data) {
+    async delete(data) {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -94,18 +102,16 @@ class Crud {
                         "X-CSRF-TOKEN": csrftoken,
                     },
                     success: (response) => {
-                        Swal.fire({
+                        Toast.fire({
                             icon: "success",
                             title: response.message,
-                            showConfirmButton: false,
-                            timer: 1000,
                         });
+                        this.reload(data.table);
                     },
                     error: (error) => {
-                        Swal.fire({
+                        Toast.fire({
                             icon: "error",
                             title: error.responseJSON.message,
-                            showConfirmButton: false,
                             timer: 2000,
                         });
                     },

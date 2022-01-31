@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,12 @@ Route::prefix('v1')->group(function () {
         Route::post('update/{id}', [ProductController::class, 'update'])->name('product-update');
         Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product-edit');
         Route::delete('destroy/{id}', [ProductController::class, 'destroy'])->name('product-destroy');
+    });
+    Route::prefix('suppliers')->group(function () {
+        Route::get('get', [SupplierController::class, 'show'])->name('supplier-show');
+        Route::post('store', [SupplierController::class, 'store'])->name('supplier-store');
+        Route::post('update/{id}', [SupplierController::class, 'update'])->name('supplier-update');
+        Route::get('edit/{id}', [SupplierController::class, 'edit'])->name('supplier-edit');
+        Route::delete('destroy/{id}', [SupplierController::class, 'destroy'])->name('supplier-destroy');
     });
 });

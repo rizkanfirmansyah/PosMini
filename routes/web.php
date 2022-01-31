@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::get('/dashboard', function () {
 
 Route::prefix('master')->group(function () {
     Route::get('produk', [ProductController::class, 'index'])->name('master-product');
+    Route::get('supplier', [SupplierController::class, 'index'])->name('master-supplier');
 });
 
 Route::prefix('auth')->group(function () {
