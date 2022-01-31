@@ -112,11 +112,11 @@
                                     <table class="table m-0" id="table-product">
                                         <thead>
                                             <tr>
-                                                <th>Order ID</th>
-                                                <th>Item</th>
-                                                <th>Status</th>
-                                                <th>Popularity</th>
-                                                <th>Popularity</th>
+                                                <th>Nama</th>
+                                                <th>Deskripsi</th>
+                                                <th>Harga</th>
+                                                <th>Kategori</th>
+                                                <th width="75px">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -141,11 +141,11 @@
 @endsection
 
 @push('modal')
-    <!-- Modal -->
+    <!-- Modal Input -->
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-lg">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Input Product</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -156,13 +156,99 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="name">Nama Produk</label>
-                            <input type="text" class="form-control" id="name" name="name" aria-describedby="textHelp">
-                            <small id="textHelp" class="form-text text-muted"></small>
+                            <input type="text" class="form-control" id="name" name="name"
+                                aria-describedby="validation-file">
+                            <small class="name form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Deskripsi Produk</label>
+                            <textarea name="description" id="description" cols="50" rows="30"
+                                class="summernote"></textarea>
+                            <small class="description form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Harga Produk</label>
+                            <input type="number" class="form-control" id="price" name="price"
+                                aria-describedby="validation-file">
+                            <small class="price form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Kategori Produk</label><br>
+                            <select class="select2" name="category[]" autocomplete data-placeholder="Select a State"
+                                multiple="multiple" style="width:100%">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <small class="category form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Gambar Produk</label>
+                            <input type="file" class="form-control" id="file" name="file"
+                                aria-describedby="validation-file">
+                            <small class="file form-text form-text-validation text-danger"></small>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-lg">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit Product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="#" id="EditData">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Nama Produk</label>
+                            <input type="text" class="form-control" id="name" name="name"
+                                aria-describedby="validation-file">
+                            <small class="name form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Deskripsi Produk</label>
+                            <textarea name="description" id="description" cols="50" rows="30"
+                                class="summernote"></textarea>
+                            <small class="description form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Harga Produk</label>
+                            <input type="number" class="form-control" id="price" name="price"
+                                aria-describedby="validation-file">
+                            <small class="price form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Kategori Produk</label><br>
+                            <select class="select2" name="category[]" autocomplete data-placeholder="Select a State"
+                                multiple="multiple" style="width:100%">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            <small class="category form-text form-text-validation text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Gambar Produk</label>
+                            <input type="file" class="form-control" id="file" name="file"
+                                aria-describedby="validation-file">
+                            <small class="file form-text form-text-validation text-danger"></small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
                     </div>
                 </form>
             </div>
@@ -170,8 +256,18 @@
     </div>
 @endpush
 
+@push('style')
+    <link href="/plugins/summernote/summernote-bs4.css" rel="stylesheet">
+    <link rel="stylesheet" href="/plugins/select2/css/select2.css">
+    <link rel="stylesheet" href="/plugins/select2-bootstrap4-theme/select2-bootstrap4.css">
+    <link rel="stylesheet" href="/plugins/sweetalert2/sweetalert2.css">
+@endpush
+
 
 @push('scripts')
+    <script src="/plugins/summernote/summernote-bs4.js"></script>
+    <script src="/plugins/select2/js/select2.full.js"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.js"></script>
     <script src="/assets/js/service-helper.js"></script>
     <script src="/assets/js/service-crud.js"></script>
 
@@ -191,12 +287,12 @@
                     name: 'price'
                 },
                 {
-                    data: 'stock_min',
-                    name: 'stock_min'
+                    data: 'category',
+                    name: 'category'
                 },
                 {
-                    data: 'created_by',
-                    name: 'created_by'
+                    data: 'action',
+                    name: 'action'
                 },
             ],
             url: '/api/v1/products/get',
@@ -204,5 +300,71 @@
         }
 
         crud.get(data)
+
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+            let id = $(this).data('id');
+            let data = null
+            if (id == undefined) {
+                data = {
+                    data: new FormData(this),
+                    url: '/api/v1/products/store',
+                    validation: true
+                }
+            } else {
+                data = {
+                    data: new FormData(this),
+                    url: '/api/v1/products/update/'+id,
+                    validation: true
+                }
+            }
+            crud.input(data);
+            crud.reload('table-product')
+        })
+
+        $('#table-product').on('click', '.Delete', function() {
+            let id = $(this).data('id')
+            let data = {
+                data: id,
+                url: '/api/v1/products/destroy',
+            }
+            crud.delete(data)
+            crud.reload('table-product')
+        })
+
+        $('#table-product').on('click', '.Edit', async function() {
+            let id = $(this).data('id')
+            let data = {
+                data: id,
+                url: '/api/v1/products/edit',
+            }
+            let response = await crud.edit(data)
+            if (response) {
+                let categories = [];
+                response.data.categories.forEach((value) => {
+                    categories.push(value.id)
+                })
+                $('#editModal').modal('show')
+                for (const [key, value] of Object.entries(
+                        response.data.product
+                    )) {
+                    if (key == 'description') {
+                        $(`#EditData #${key}`).summernote("code", value);
+                    } else {
+                        $(`#EditData #${key}`).val(value)
+                    }
+                }
+                $('#EditData').data('id', response.data.product.id);
+                $('#EditData select[name="category[]"]').val(categories)
+                $('#EditData select[name="category[]"]').select2()
+            }
+        })
+
+
+        $('.summernote').summernote();
+
+        $('.select2').select2({
+            theme: 'bootstrap4'
+        });
     </script>
 @endpush
