@@ -94,7 +94,7 @@
                         <!-- TABLE: LATEST ORDERS -->
                         <div class="card">
                             <div class="card-header border-transparent">
-                                <h3 class="card-title">Data Product</h3>
+                                <h3 class="card-title">Data Customer</h3>
 
                                 <div class="card-tools">
                                     <button type="button" class="btn btn-tool btn-light text-primary" data-toggle="modal"
@@ -106,13 +106,13 @@
                             <!-- /.card-header -->
                             <div class="card-body p-3">
                                 <div class="table-responsive">
-                                    <table class="table m-0" id="table-product">
+                                    <table class="table m-0" id="table-customer">
                                         <thead>
                                             <tr>
                                                 <th>Nama</th>
-                                                <th>Deskripsi</th>
-                                                <th>Harga</th>
-                                                <th>Kategori</th>
+                                                <th>Alamat</th>
+                                                <th>Telepon</th>
+                                                <th>Email</th>
                                                 <th width="75px">Action</th>
                                             </tr>
                                         </thead>
@@ -144,7 +144,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content modal-lg">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Input Product</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Input Customer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -152,38 +152,28 @@
                 <form action="#" id="InputData">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="name">Nama Produk</label>
+                            <label for="name">Nama Customer</label>
                             <input type="text" class="form-control" id="name" name="name"
                                 aria-describedby="validation-file">
                             <small class="name form-text form-text-validation text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label for="name">Deskripsi Produk</label>
-                            <textarea name="description" id="description" cols="50" rows="30"
+                            <label for="name">Alamat Customer</label>
+                            <textarea name="address" id="address" cols="50" rows="30"
                                 class="summernote"></textarea>
-                            <small class="description form-text form-text-validation text-danger"></small>
+                            <small class="address form-text form-text-validation text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label for="price">Harga Produk</label>
-                            <input type="number" class="form-control" id="price" name="price"
+                            <label for="address">Telepon Customer</label>
+                            <input type="text" class="form-control" id="phone" name="phone"
                                 aria-describedby="validation-file">
-                            <small class="price form-text form-text-validation text-danger"></small>
+                            <small class="phone form-text form-text-validation text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label for="category">Kategori Produk</label><br>
-                            <select class="select2" name="category[]" autocomplete data-placeholder="Select a State"
-                                multiple="multiple" style="width:100%">
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                            <small class="category form-text form-text-validation text-danger"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="file">Gambar Produk</label>
-                            <input type="file" class="form-control" id="file" name="file"
+                            <label for="email">Email Customer</label>
+                            <input type="email" class="form-control" id="email" name="email"
                                 aria-describedby="validation-file">
-                            <small class="file form-text form-text-validation text-danger"></small>
+                            <small class="email form-text form-text-validation text-danger"></small>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -201,7 +191,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content modal-lg">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Edit Product</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit Customer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -209,38 +199,28 @@
                 <form action="#" id="EditData">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="name">Nama Produk</label>
+                            <label for="name">Nama Customer</label>
                             <input type="text" class="form-control" id="name" name="name"
                                 aria-describedby="validation-file">
                             <small class="name form-text form-text-validation text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label for="name">Deskripsi Produk</label>
-                            <textarea name="description" id="description" cols="50" rows="30"
+                            <label for="name">Alamat Customer</label>
+                            <textarea name="address" id="address" cols="50" rows="30"
                                 class="summernote"></textarea>
-                            <small class="description form-text form-text-validation text-danger"></small>
+                            <small class="address form-text form-text-validation text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label for="price">Harga Produk</label>
-                            <input type="number" class="form-control" id="price" name="price"
+                            <label for="address">Telepon Customer</label>
+                            <input type="text" class="form-control" id="phone" name="phone"
                                 aria-describedby="validation-file">
-                            <small class="price form-text form-text-validation text-danger"></small>
+                            <small class="phone form-text form-text-validation text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label for="category">Kategori Produk</label><br>
-                            <select class="select2" name="category[]" autocomplete data-placeholder="Select a State"
-                                multiple="multiple" style="width:100%">
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
-                            </select>
-                            <small class="category form-text form-text-validation text-danger"></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="file">Gambar Produk</label>
-                            <input type="file" class="form-control" id="file" name="file"
+                            <label for="email">Email Customer</label>
+                            <input type="email" class="form-control" id="email" name="email"
                                 aria-describedby="validation-file">
-                            <small class="file form-text form-text-validation text-danger"></small>
+                            <small class="email form-text form-text-validation text-danger"></small>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -276,24 +256,24 @@
                     name: 'name'
                 },
                 {
-                    data: 'description',
-                    name: 'description'
+                    data: 'address',
+                    name: 'address'
                 },
                 {
-                    data: 'price',
-                    name: 'price'
+                    data: 'phone',
+                    name: 'phone'
                 },
                 {
-                    data: 'category',
-                    name: 'category'
+                    data: 'email',
+                    name: 'email'
                 },
                 {
                     data: 'action',
                     name: 'action'
                 },
             ],
-            url: '/api/v1/products/get',
-            table: 'table-product'
+            url: '/api/v1/customers/get',
+            table: 'table-customer'
         }
 
         crud.get(data)
@@ -305,55 +285,49 @@
             if (id == undefined) {
                 data = {
                     data: new FormData(this),
-                    url: '/api/v1/products/store',
+                    url: '/api/v1/customers/store',
                     validation: true
                 }
             } else {
                 data = {
                     data: new FormData(this),
-                    url: '/api/v1/products/update/'+id,
+                    url: '/api/v1/customers/update/'+id,
                     validation: true
                 }
             }
             crud.input(data);
-            crud.reload('table-product')
+            crud.reload('table-customer')
         })
 
-        $('#table-product').on('click', '.Delete', function() {
+        $('#table-customer').on('click', '.Delete', async function() {
             let id = $(this).data('id')
             let data = {
                 data: id,
-                url: '/api/v1/products/destroy',
-                table : 'table-product'
+                url: '/api/v1/customers/destroy',
+                table: 'table-customer'
             }
             crud.delete(data)
         })
 
-        $('#table-product').on('click', '.Edit', async function() {
+        $('#table-customer').on('click', '.Edit', async function() {
             let id = $(this).data('id')
             let data = {
                 data: id,
-                url: '/api/v1/products/edit',
+                url: '/api/v1/customers/edit',
             }
             let response = await crud.edit(data)
             if (response) {
-                let categories = [];
-                response.data.categories.forEach((value) => {
-                    categories.push(value.id)
-                })
                 $('#editModal').modal('show')
                 for (const [key, value] of Object.entries(
-                        response.data.product
+                        response.data.customer
                     )) {
-                    if (key == 'description') {
+                    if (key == 'description' || key == 'address') {
                         $(`#EditData #${key}`).summernote("code", value);
                     } else {
                         $(`#EditData #${key}`).val(value)
                     }
                 }
-                $('#EditData').data('id', response.data.product.id);
-                $('#EditData select[name="category[]"]').val(categories)
-                $('#EditData select[name="category[]"]').select2()
+                $('#EditData').data('id', response.data.customer.id);
             }
         })
 

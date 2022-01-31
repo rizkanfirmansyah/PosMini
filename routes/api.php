@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Http\Request;
@@ -39,5 +40,12 @@ Route::prefix('v1')->group(function () {
         Route::post('update/{id}', [SupplierController::class, 'update'])->name('supplier-update');
         Route::get('edit/{id}', [SupplierController::class, 'edit'])->name('supplier-edit');
         Route::delete('destroy/{id}', [SupplierController::class, 'destroy'])->name('supplier-destroy');
+    });
+    Route::prefix('customers')->group(function () {
+        Route::get('get', [CustomerController::class, 'show'])->name('customer-show');
+        Route::post('store', [CustomerController::class, 'store'])->name('customer-store');
+        Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer-update');
+        Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer-edit');
+        Route::delete('destroy/{id}', [CustomerController::class, 'destroy'])->name('customer-destroy');
     });
 });

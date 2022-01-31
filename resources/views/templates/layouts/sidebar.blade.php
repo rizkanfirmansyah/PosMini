@@ -32,7 +32,7 @@
               </li>
               <li class="nav-item ">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-store"></i>
+                  <i class="nav-icon fas fa-warehouse"></i>
                   <p>
                     Master
                     <i class="right fas fa-angle-left"></i>
@@ -58,7 +58,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
+                    <a href="{{route('master-customer')}}" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Customer</p>
                     </a>
@@ -70,6 +70,14 @@
                   <i class="nav-icon fas fa-cash-register"></i>
                   <p>
                     Pembelian
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('inventory')}}" class="nav-link">
+                  <i class="nav-icon fas fa-boxes"></i>
+                  <p>
+                    Inventory
                   </p>
                 </a>
               </li>
