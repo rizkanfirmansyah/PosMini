@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::prefix('v1')->group(function () {
     });
     Route::prefix('products')->group(function () {
         Route::get('get', [ProductController::class, 'show'])->name('product-show');
+        Route::get('get/all', [ProductController::class, 'showAll'])->name('product-show-all');
         Route::post('store', [ProductController::class, 'store'])->name('product-store');
         Route::post('update/{id}', [ProductController::class, 'update'])->name('product-update');
         Route::get('edit/{id}', [ProductController::class, 'edit'])->name('product-edit');
@@ -47,5 +49,12 @@ Route::prefix('v1')->group(function () {
         Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer-update');
         Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer-edit');
         Route::delete('destroy/{id}', [CustomerController::class, 'destroy'])->name('customer-destroy');
+    });
+    Route::prefix('purchases')->group(function () {
+        Route::get('get', [PurchaseController::class, 'show'])->name('purchase-show');
+        Route::post('store', [PurchaseController::class, 'store'])->name('purchase-store');
+        Route::post('update/{id}', [PurchaseController::class, 'update'])->name('purchase-update');
+        Route::get('edit/{id}', [PurchaseController::class, 'edit'])->name('purchase-edit');
+        Route::delete('destroy/{id}', [PurchaseController::class, 'destroy'])->name('purchase-destroy');
     });
 });

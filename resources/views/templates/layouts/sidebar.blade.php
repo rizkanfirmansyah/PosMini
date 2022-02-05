@@ -66,7 +66,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="pages/calendar.html" class="nav-link">
+                <a href="{{route('purchase')}}" class="nav-link">
                   <i class="nav-icon fas fa-cash-register"></i>
                   <p>
                     Pembelian

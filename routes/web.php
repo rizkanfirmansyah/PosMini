@@ -3,6 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\SupplierController;
 use App\Models\Inventory;
 use Illuminate\Routing\RouteGroup;
@@ -36,6 +37,7 @@ Route::prefix('master')->group(function () {
 });
 
 Route::get('inventory', [InventoryController::class, 'index'])->name('inventory');
+Route::get('purchase', [PurchaseController::class, 'index'])->name('purchase');
 
 Route::prefix('auth')->group(function () {
 

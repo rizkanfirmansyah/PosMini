@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
-class InventoryController extends Controller
+class PurchaseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,9 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        $title = 'Inventory Product';
-        return view('main.inventory.index', compact('title'));
+        $title = 'Pembelian produk';
+        $suppliers = Supplier::all();
+        return view('main.purchase.index', compact('title', 'suppliers'));
     }
 
     /**

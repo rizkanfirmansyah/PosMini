@@ -27,6 +27,27 @@ class Crud {
         });
     }
 
+    async getData(data) {
+        const result = await $.ajax({
+            url: data.url ,
+            headers: {
+                "X-CSRF-TOKEN": csrftoken,
+            },
+            success: (response) => {
+                return response.data;
+            },
+            error: (error) => {
+                Toast.fire({
+                    icon: "error",
+                    title: error.responseJSON.message,
+                    timer: 2000,
+                });
+            },
+        });
+
+        return result;
+    }
+
     input(data) {
         $.ajax({
             type: "POST",

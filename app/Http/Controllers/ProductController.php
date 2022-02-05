@@ -28,9 +28,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function showAll()
     {
-        //
+        return response()->json(['message' => 'Query data berhasil', 'data' => Product::all()], 200);
     }
 
     /**
